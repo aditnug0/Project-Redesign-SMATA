@@ -1,3 +1,1451 @@
+/* ==========================================================================
+   SMATA — SMA Negeri 1 Tempeh
+   Responsive stylesheet: Mobile-first → Tablet (768px) → Desktop (1440px)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   RESET & VARIABEL GLOBAL
+   -------------------------------------------------------------------------- */
+:root {
+  /* Warna */
+  --orange: #ff7a00;
+  --orange-light: #ff9a3d;
+  --orange-dark: #904500;
+  --orange-pale: #ffe2c2;
+  --brown-dark: #2c170d;
+  --black: #000000;
+  --white: #ffffff;
+  --grey-text: #bbbbbb;
+
+  /* Gradien */
+  --grad-navbar: linear-gradient(
+    84.31deg,
+    #ff7a00 20.87%,
+    #904500 35.13%,
+    #000000 45.3%
+  );
+  --grad-main: linear-gradient(180deg, #000000 0%, #2c170d 100%);
+  --grad-footer: linear-gradient(
+    90deg,
+    rgba(198, 101, 11, 0.5) 0%,
+    #2c170d 92.31%
+  );
+  --grad-footer-dt: linear-gradient(90deg, #c6650b 0%, #2c170d 54.81%);
+
+  /* Tipografi */
+  --font-primary: "Inter", sans-serif;
+  --font-display: "Mulish", sans-serif;
+  --font-quote: "K2D", serif;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 40px;
+  --radius-2xl: 60px;
+  --radius-3xl: 85px;
+
+  /* Spacing */
+  --px-mobile: 16px;
+  --px-tablet: 32px;
+  --px-desktop: 100px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Placeholder gambar sebelum dimuat */
+img[src^="gambar"] {
+  min-height: 80px;
+  background: #1a1a1a;
+  border: 1px dashed #444;
+  border-radius: var(--radius-sm);
+}
+
+.container {
+  width: 100%;
+  padding: 0 var(--px-mobile);
+  margin: 0 auto;
+}
+
+.desktop-only {
+  display: none;
+}
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--grad-navbar);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 var(--px-mobile);
+  gap: 10px;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 37px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text-fallback {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.logo-sub {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--orange-pale);
+  white-space: nowrap;
+}
+
+/* Desktop Nav Links — sembunyikan di mobile */
+.nav-menu {
+  display: none;
+}
+
+/* Search + Menu */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-bar {
+  display: none; /* muncul di tablet ke atas */
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+}
+
+.menu-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+}
+
+/* Mobile Dropdown */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.95);
+  border-top: 1px solid rgba(255, 122, 0, 0.3);
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu a {
+  padding: 12px var(--px-mobile);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.mobile-menu a:hover {
+  background: rgba(255, 122, 0, 0.15);
+  color: var(--orange);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0 40px;
+  min-height: 280px;
+}
+
+/* Dekorasi kotak oranye berputar */
+.hero-deco {
+  position: absolute;
+  background: var(--orange);
+  border-radius: var(--radius-xl);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-deco-top {
+  width: 244px;
+  height: 236px;
+  right: -80px;
+  top: -30px;
+  transform: rotate(-39.29deg);
+  opacity: 0.9;
+}
+
+.hero-deco-bottom {
+  width: 244px;
+  height: 236px;
+  left: -100px;
+  top: 64px;
+  transform: rotate(-102.7deg);
+  opacity: 0.8;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.hero-text {
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+
+.hero-visi {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.hero-visual {
+  width: 100%;
+  max-width: 320px;
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  border: 3px solid var(--black);
+  transform: rotate(-5deg);
+  box-shadow: 0 8px 32px rgba(255, 122, 0, 0.25);
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  background: #1a1a1a;
+}
+
+/* ==========================================================================
+   KEUNGGULAN SECTION
+   ========================================================================== */
+.keunggulan-section {
+  padding: 60px 0;
+  background: var(--grad-main);
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 36px;
+  line-height: 1.3;
+}
+
+.keunggulan-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 20px;
+}
+
+.keunggulan-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.keunggulan-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #1a1a1a;
+  flex-shrink: 0;
+}
+
+.keunggulan-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.keunggulan-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.keunggulan-card p {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   PRESTASI SECTION
+   ========================================================================== */
+.prestasi-section {
+  padding: 50px 0;
+  background: var(--grad-main);
+}
+
+.prestasi-label {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--black);
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 32px;
+  line-height: 1.3;
+}
+
+.prestasi-items {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.prestasi-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.prestasi-img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  background: #1a1a1a;
+}
+
+.prestasi-caption {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--white);
+  background: var(--orange);
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  max-width: 85%;
+}
+
+.prestasi-caption--right {
+  align-self: flex-end;
+}
+.prestasi-caption--left {
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   FASILITAS SECTION
+   ========================================================================== */
+.fasilitas-section {
+  padding: 50px 0;
+  background: var(--grad-main);
+}
+
+.fasilitas-label {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  padding: 10px 28px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.fasilitas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.fasilitas-card {
+  background: var(--black);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-align: center;
+}
+
+.fasilitas-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  background: #1a1a1a;
+}
+
+.fasilitas-card p {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 8px 4px;
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.3;
+}
+
+.fasilitas-footer {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.btn-selengkapnya {
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-selengkapnya:hover {
+  background: #e66a00;
+  transform: translateY(-2px);
+}
+
+.btn-selengkapnya--sm {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   SAMBUTAN KEPALA SEKOLAH
+   ========================================================================== */
+.sambutan-section {
+  padding: 50px 0;
+  background: var(--grad-main);
+}
+
+.sambutan-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-align: center;
+}
+
+.sambutan-foto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.foto-kepsek {
+  /* width: 700px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--white);
+  background: #1a1a1a; */
+
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--white);
+  background: #1a1a1a;
+}
+
+.foto-caption {
+  background: var(--white);
+  color: var(--black);
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.foto-caption strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.foto-caption span {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.sambutan-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.sambutan-text p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* ==========================================================================
+   GURU SECTION
+   ========================================================================== */
+.guru-section {
+  padding: 40px 0;
+  background: var(--grad-main);
+}
+
+.guru-grid {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.guru-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+}
+
+.guru-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--white);
+  background: #1a1a1a;
+}
+
+.guru-info {
+  background: var(--white);
+  color: var(--black);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  width: 100%;
+}
+
+.guru-info strong {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.guru-info span {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   INFO SECTION (Agenda / Berita / Pengumuman)
+   ========================================================================== */
+.info-section {
+  padding: 50px 0;
+  background: var(--grad-main);
+}
+
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-card-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.info-card--agenda .info-card-header {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.agenda-tanggal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  padding: 10px;
+  background: var(--orange-pale);
+  color: var(--black);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.agenda-tgl {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.agenda-bln {
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.info-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-badge {
+  display: inline-block;
+  background: var(--orange-pale);
+  color: var(--black);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.info-card-body p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.info-meta {
+  font-size: 0.75rem;
+  color: var(--grey-text);
+  display: block;
+}
+
+.info-card--berita h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.info-card--berita p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.pengumuman-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pengumuman-item p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+.pengumuman-list hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   BLOG GURU SECTION
+   ========================================================================== */
+.blog-section {
+  padding: 50px 0;
+  background: var(--grad-main);
+}
+
+.blog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.blog-label {
+  display: inline-block;
+  background: var(--orange-light);
+  color: var(--black);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+}
+
+.blog-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.blog-arrow {
+  background: none;
+  border: 2px solid var(--white);
+  color: var(--white);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.blog-arrow:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.blog-slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+}
+
+.blog-card {
+  flex: 0 0 calc(100% - 32px);
+  scroll-snap-align: start;
+  border: 1px solid var(--orange-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.blog-card--center {
+  flex: 0 0 calc(100% - 32px);
+}
+
+.blog-thumb {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  background: #1a1a1a;
+}
+
+/* ==========================================================================
+   QUOTE SECTION
+   ========================================================================== */
+.quote-section {
+  padding: 0;
+}
+
+.quote-wrapper {
+  position: relative;
+  background: var(--orange);
+  padding: 20px var(--px-mobile);
+}
+
+.quote-inner {
+  position: relative;
+  background: var(--black);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px 24px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.quote-mark {
+  font-family: var(--font-quote);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--white);
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+}
+
+.quote-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.6;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.quote-line {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  width: 60%;
+  margin: 0 auto 12px;
+}
+
+.quote-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================================================
+   FOOTER INFO SECTION
+   ========================================================================== */
+.footer-info-section {
+  padding: 50px 0;
+  background: var(--grad-footer);
+}
+
+.footer-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.footer-col-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Agenda List */
+.agenda-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  max-height: 280px;
+}
+
+.agenda-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+}
+
+.agenda-date-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  padding: 8px 6px;
+  background: var(--orange-pale);
+  color: var(--black);
+  text-align: center;
+}
+
+.agenda-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.agenda-month {
+  font-size: 0.6rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.agenda-desc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.agenda-time-badge {
+  display: inline-block;
+  background: var(--orange-pale);
+  color: var(--black);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  width: fit-content;
+}
+
+.agenda-desc p {
+  font-size: 0.8rem;
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.agenda-status {
+  font-size: 0.7rem;
+  color: var(--grey-text);
+}
+
+.agenda-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Peta */
+.peta-wrapper {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 122, 0, 0.3);
+}
+
+.peta-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  background: #1a1a1a;
+}
+
+.peta-label {
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 6px;
+  background: rgba(255, 122, 0, 0.15);
+  color: var(--orange-light);
+  font-weight: 600;
+}
+
+/* Info table */
+.info-sekolah-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.info-table tr {
+  border-bottom: 1px solid rgba(185, 185, 185, 0.3);
+}
+
+.info-table td {
+  padding: 8px 12px;
+  color: var(--white);
+  border: 1px solid rgba(185, 185, 185, 0.3);
+}
+
+.info-table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   SITE FOOTER
+   ========================================================================== */
+.site-footer {
+  background: var(--orange);
+  color: var(--black);
+  text-align: center;
+  padding: 16px var(--px-mobile);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   TABLET (≥ 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--px-tablet);
+    max-width: 900px;
+  }
+
+  /* Navbar */
+  .nav-container {
+    height: 90px;
+    padding: 0 var(--px-tablet);
+  }
+
+  .logo-img {
+    height: 52px;
+  }
+  .logo-title {
+    font-size: 1rem;
+  }
+  .logo-sub {
+    font-size: 0.85rem;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: var(--radius-md);
+    padding: 5px 10px;
+    height: 40px;
+  }
+
+  .search-bar input {
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    width: 180px;
+    font-family: var(--font-primary);
+  }
+
+  .search-label {
+    font-size: 0.85rem;
+    color: #666;
+    border-left: 1px solid #ccc;
+    padding-left: 6px;
+  }
+
+  .search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #555;
+  }
+
+  .menu-btn {
+    padding: 10px;
+  }
+
+  .menu-btn span {
+    width: 30px;
+    height: 3px;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 80px 0 60px;
+  }
+
+  .hero-deco-top {
+    width: 434px;
+    height: 419px;
+    right: -120px;
+    top: -80px;
+    border-radius: var(--radius-2xl);
+  }
+
+  .hero-deco-bottom {
+    width: 434px;
+    height: 419px;
+    left: -160px;
+    top: 80px;
+    border-radius: var(--radius-2xl);
+  }
+
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 40px;
+  }
+
+  .hero-text {
+    flex: 1;
+    text-align: left;
+  }
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-visi {
+    margin: 0;
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+  .hero-visual {
+    flex: 0 0 42%;
+  }
+
+  /* Keunggulan */
+  .keunggulan-section {
+    padding: 80px 0;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .keunggulan-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 24px;
+  }
+
+  .keunggulan-icon {
+    width: 100px;
+    height: 100px;
+  }
+  .keunggulan-card h3 {
+    font-size: 1.5rem;
+  }
+  .keunggulan-card p {
+    font-size: 0.9rem;
+  }
+
+  /* Prestasi */
+  .prestasi-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  /* Fasilitas */
+  .fasilitas-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  /* Sambutan */
+  .sambutan-wrapper {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .sambutan-foto {
+    min-width: 180px;
+  }
+  .sambutan-title {
+    font-size: 1.5rem;
+  }
+  .sambutan-text p {
+    font-size: 1rem;
+  }
+
+  /* Guru */
+  .guru-card {
+    max-width: 220px;
+  }
+  .guru-photo {
+    border-radius: var(--radius-xl);
+  }
+
+  /* Info grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .info-card--pengumuman {
+    grid-column: span 2;
+  }
+
+  /* Blog */
+  .blog-card {
+    flex: 0 0 calc(50% - 8px);
+  }
+
+  /* Quote */
+  .quote-text {
+    font-size: 1.2rem;
+  }
+  .quote-mark {
+    font-size: 6rem;
+  }
+
+  /* Footer info */
+  .footer-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer-col-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* ==========================================================================
+   DESKTOP (≥ 1440px)
+   ========================================================================== */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1280px;
+    padding: 0 var(--px-desktop);
+  }
+
+  .desktop-only {
+    display: flex;
+  }
+
+  /* Navbar */
+  .nav-container {
+    height: 90px;
+    padding: 0 var(--px-desktop);
+    gap: 20px;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-menu a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--white);
+    white-space: nowrap;
+    transition: color 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-menu a:hover {
+    color: var(--orange);
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .search-bar input {
+    width: 220px;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 120px 0 80px;
+    min-height: 520px;
+  }
+
+  .hero-deco-top {
+    width: 762px;
+    height: 735px;
+    right: -200px;
+    top: -150px;
+    border-radius: var(--radius-3xl);
+  }
+
+  .hero-deco-bottom {
+    width: 762px;
+    height: 735px;
+    left: -260px;
+    top: 100px;
+    border-radius: var(--radius-3xl);
+  }
+
+  .hero-title {
+    font-size: 3.75rem; /* ~60px */
+  }
+  .hero-visi {
+    font-size: 1.1rem;
+  }
+
+  /* Keunggulan */
+  .keunggulan-section {
+    padding: 100px 0;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .keunggulan-icon {
+    width: 127px;
+    height: 127px;
+  }
+  .keunggulan-card h3 {
+    font-size: 2rem; /* Mulish 40px */
+  }
+  .keunggulan-card p {
+    font-size: 1rem;
+  }
+
+  /* Prestasi */
+  .prestasi-items {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  /* Fasilitas */
+  .fasilitas-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .fasilitas-card p {
+    font-size: 0.9rem;
+  }
+
+  /* Sambutan */
+  .sambutan-title {
+    font-size: 2rem;
+  }
+
+  /* Guru */
+  .guru-grid {
+    justify-content: flex-start;
+    gap: 24px;
+  }
+  .guru-card {
+    max-width: 280px;
+    flex: 1;
+  }
+
+  /* Info grid */
+  .info-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .info-card--pengumuman {
+    grid-column: span 1;
+  }
+
+  /* Blog */
+  .blog-card {
+    flex: 0 0 calc(33.333% - 12px);
+  }
+
+  /* Quote */
+  .quote-wrapper {
+    padding: 40px var(--px-desktop);
+  }
+
+  .quote-inner {
+    padding: 50px 80px 40px;
+    border-radius: var(--radius-xl);
+  }
+
+  .quote-text {
+    font-size: 2rem; /* 32px */
+  }
+  .quote-mark {
+    font-size: 8rem;
+  }
+  .quote-author {
+    font-size: 1.2rem;
+  }
+
+  /* Footer info */
+  .footer-info-section {
+    padding: 60px 0;
+    background: var(--grad-footer-dt);
+  }
+
+  .footer-info-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+  }
+
+  .footer-col-title {
+    font-size: 1.25rem;
+  }
+
+  .agenda-list {
+    max-height: 340px;
+  }
+  .agenda-num {
+    font-size: 1.75rem;
+  }
+
+  .info-sekolah-name {
+    font-size: 1.1rem;
+  }
+  .info-table {
+    font-size: 0.85rem;
+  }
+}
+
 :root {
   --font-main: "Inter", sans-serif;
   --font-reading: "Mulish", sans-serif;
