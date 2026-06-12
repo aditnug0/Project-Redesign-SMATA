@@ -1,13 +1,13 @@
 :root {
-  --font-main: 'Inter', sans-serif;
-  --font-reading: 'Mulish', sans-serif;
+  --font-main: "Inter", sans-serif;
+  --font-reading: "Mulish", sans-serif;
 
-  --brand-orange: #FF7A00;
-  --bg-dark-shade: #1A110A;
-  --pure-white: #FFFFFF;
+  --brand-orange: #ff7a00;
+  --bg-dark-shade: #1a110a;
+  --pure-white: #ffffff;
   --pure-black: #000000;
-  --border-grey: #DDDDDD;
-  --badge-light: #FFE2C2;
+  --border-grey: #dddddd;
+  --badge-light: #ffe2c2;
 }
 
 * {
@@ -18,7 +18,7 @@
 
 body {
   font-family: var(--font-main);
-  background: linear-gradient(180deg, #000000 0%, #2C170D 100%);
+  background: linear-gradient(180deg, #000000 0%, #2c170d 100%);
   color: var(--pure-white);
   line-height: 1.6;
   overflow-x: hidden;
@@ -46,7 +46,12 @@ a {
     NAVBAR & HEADER AREA
    ========================================================================== */
 .navbar {
-  background: linear-gradient(84.31deg, #FF7A00 20.87%, #904500 35.13%, #000000 45.3%);
+  background: linear-gradient(
+    84.31deg,
+    #ff7a00 20.87%,
+    #904500 35.13%,
+    #000000 45.3%
+  );
   padding: 12px 12px;
   position: sticky;
   top: 0;
@@ -110,7 +115,6 @@ a {
 
 .select-wrapper {
   width: 100%;
-
 }
 
 .search-icon {
@@ -140,7 +144,6 @@ a {
   gap: 15px;
   width: 100%;
 }
-
 
 .header-logo-kiri {
   width: 110px;
@@ -238,7 +241,6 @@ a {
 .gallery-item {
   flex: 0 0 85%;
   scroll-snap-align: start;
-
 }
 
 .gallery-item img {
@@ -246,7 +248,6 @@ a {
   object-fit: cover;
   width: 100%;
   height: fit-content;
-
 }
 
 /* Widget System (Solusi Teks Bertumpuk Vertikal) */
@@ -337,7 +338,7 @@ a {
    ========================================================================== */
 .pre-footer-section {
   /* Frame Info Sekolah */
-  background: linear-gradient(90deg, #C6650B 0%, #2C170D 54.81%);
+  background: linear-gradient(90deg, #c6650b 0%, #2c170d 54.81%);
   padding: 40px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -382,7 +383,6 @@ a {
   text-align: center;
   min-width: 75px;
   flex-shrink: 0;
-
 }
 
 .date-badge .day {
@@ -429,7 +429,6 @@ a {
   gap: 35px;
 }
 
-
 .footer-line {
   height: 1px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -470,7 +469,6 @@ a {
   display: flex;
   border-bottom: 1px solid var(--border-grey);
   width: 100%;
-
 }
 
 .table-row:last-child {
@@ -586,7 +584,6 @@ a {
    RESPONSIVE BREAKPOINTS (Desktop Layout Integration)
    ========================================================================== */
 @media (min-width: 1024px) {
-
   .btn-menu-mobile {
     display: none;
     /* Hilangkan hamburger menu di desktop */
@@ -623,13 +620,18 @@ a {
     /* Konten utama memakan ruang 75% */
   }
 
+  .main-content1 {
+    flex: 0 0 100%;
+    /* Konten utama memakan ruang 100% */
+  }
+
   .sidebar-content {
     flex: 0 0 25%;
     /* Sidebar memakan sisa ruang 25% */
     position: sticky;
     top: 25px;
     /* Sidebar tidak tenggelam saat di-scroll ke bawah */
-    gap: 50px
+    gap: 50px;
   }
 
   .orange-box {
@@ -662,7 +664,6 @@ a {
 
 /* --- Keadaan Desktop (Layar Lebar) --- */
 @media (min-width: 1024px) {
-
   /* Sembunyikan search box toggle bawaan saat di layar komputer/laptop */
   .desktop-menu .search-box-toggle {
     display: none !important;
@@ -681,7 +682,6 @@ a {
 
 /* Keadaan Mobile & Tablet (Layar Kecil) */
 @media (max-width: 1023px) {
-
   /* Tampilkan tombol hamburger mobile */
   .btn-menu-mobile {
     display: flex !important;
@@ -730,7 +730,6 @@ a {
     align-items: center;
     justify-content: space-between;
   }
-
 
   .desktop-menu .search-box-toggle input {
     width: 100%;
