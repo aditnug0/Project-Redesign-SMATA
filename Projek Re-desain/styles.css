@@ -1,16 +1,13 @@
-/* ==========================================================================
-   1. GLOBAL STYLES & INITIAL DEFAULTS (Mobile First Approach)
-   ========================================================================== */
 :root {
-  --font-main: "Inter", sans-serif;
-  --font-reading: "Mulish", sans-serif;
+  --font-main: 'Inter', sans-serif;
+  --font-reading: 'Mulish', sans-serif;
 
-  --brand-orange: #ff7a00;
-  --bg-dark-shade: #1a110a;
-  --pure-white: #ffffff;
+  --brand-orange: #FF7A00;
+  --bg-dark-shade: #1A110A;
+  --pure-white: #FFFFFF;
   --pure-black: #000000;
-  --border-grey: #dddddd;
-  --badge-light: #ffe2c2;
+  --border-grey: #DDDDDD;
+  --badge-light: #FFE2C2;
 }
 
 * {
@@ -21,7 +18,7 @@
 
 body {
   font-family: var(--font-main);
-  background-color: var(--bg-dark-shade);
+  background: linear-gradient(180deg, #000000 0%, #2C170D 100%);
   color: var(--pure-white);
   line-height: 1.6;
   overflow-x: hidden;
@@ -46,12 +43,16 @@ a {
 }
 
 /* ==========================================================================
-   2. SITE MODULES: NAVBAR & HEADER AREA
+    NAVBAR & HEADER AREA
    ========================================================================== */
 .navbar {
-  background-color: var(--pure-black);
+  background: linear-gradient(84.31deg, #FF7A00 20.87%, #904500 35.13%, #000000 45.3%);
   padding: 12px 12px;
-  border-bottom: 3px solid var(--brand-orange);
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .nav-container {
@@ -76,6 +77,10 @@ a {
 .desktop-menu {
   display: none;
   /* Mobile default hidden */
+}
+
+.search-box-toggle {
+  display: none;
 }
 
 .nav-actions {
@@ -105,6 +110,7 @@ a {
 
 .select-wrapper {
   width: 100%;
+
 }
 
 .search-icon {
@@ -135,6 +141,7 @@ a {
   width: 100%;
 }
 
+
 .header-logo-kiri {
   width: 110px;
   height: auto;
@@ -155,12 +162,10 @@ a {
   border-radius: 20px;
   text-align: center;
   width: 100%;
-  /* Fill container on mobile */
-  /* max-width: 450px; */
 }
 
 /* ==========================================================================
-   3. MIDDLE ZONE LAYOUT (Content & Sidebar)
+   Content & Sidebar
    ========================================================================== */
 .main-layout {
   display: flex;
@@ -221,26 +226,19 @@ a {
   margin-top: 30px;
 
   overflow-x: auto;
-  /* Memunculkan fungsi scroll horizontal jika foto melebihi layar */
   overflow-y: hidden;
-  /* Matikan scroll vertikal (atas-bawah) */
   scroll-snap-type: x mandatory;
-  /* Membuat scroll otomatis mengunci pas di tengah/awal foto */
   -webkit-overflow-scrolling: touch;
-  /* Membuat geseran di layar HP terasa mulus & responsif */
 }
 
 .gallery-wrapper::-webkit-scrollbar {
   display: none;
-  /* Menghilangkan batang scrollbar secara total */
 }
 
 .gallery-item {
-  /* flex: shrink-0 grow-0 basis-85% */
   flex: 0 0 85%;
-  /* Di HP, satu foto memakan 85% lebar layar. Sisa 15% untuk mengintip foto berikutnya */
   scroll-snap-align: start;
-  /* Titik penguncian saat jari selesai menggeser foto */
+
 }
 
 .gallery-item img {
@@ -248,6 +246,7 @@ a {
   object-fit: cover;
   width: 100%;
   height: fit-content;
+
 }
 
 /* Widget System (Solusi Teks Bertumpuk Vertikal) */
@@ -270,7 +269,7 @@ a {
   padding: 16px;
   border-radius: 16px;
   width: 100%;
-  /* Pastikan menghabiskan kontainer tanpa pemotongan lebar */
+  box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .widget-title {
@@ -330,15 +329,15 @@ a {
 }
 
 .banner-item-card img {
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 4px solid rgba(255, 255, 255, 1);
 }
 
 /* ==========================================================================
-   4. BOTTOM INFORMATION SECTIONS (PRE-FOOTER)
+   PRE-FOOTER
    ========================================================================== */
 .pre-footer-section {
-  background-color: rgba(255, 255, 255, 0.03);
+  /* Frame Info Sekolah */
+  background: linear-gradient(90deg, #C6650B 0%, #2C170D 54.81%);
   padding: 40px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -350,10 +349,10 @@ a {
 }
 
 .block-title {
-  color: var(--brand-orange);
+  color: var(--pure-white);
   font-size: 20px;
   margin-bottom: 18px;
-  border-left: 3px solid var(--brand-orange);
+  border-left: 3px solid var(--pure-white);
   padding-left: 10px;
 }
 
@@ -373,7 +372,6 @@ a {
   display: flex;
   gap: 15px;
   align-items: center;
-  /* Sejajarkan lurus badge tanggal dengan teks */
 }
 
 .date-badge {
@@ -383,9 +381,8 @@ a {
   border-radius: 8px;
   text-align: center;
   min-width: 75px;
-  /* Kunci lebar minimum agar lingkaran/kotak tidak terjepit */
   flex-shrink: 0;
-  /* Cegah kompresi dari flexbox */
+
 }
 
 .date-badge .day {
@@ -405,7 +402,6 @@ a {
   flex-direction: column;
   gap: 4px;
   flex-grow: 1;
-  /* Ambil sisa tempat yang ada secara penuh */
 }
 
 .badge-time {
@@ -424,7 +420,7 @@ a {
 
 .agenda-status {
   font-size: 11px;
-  color: #aaaaaa;
+  color: #ffffff;
 }
 
 .footer-block-group {
@@ -432,6 +428,7 @@ a {
   flex-direction: column;
   gap: 35px;
 }
+
 
 .footer-line {
   height: 1px;
@@ -442,26 +439,19 @@ a {
 .maps-wrapper {
   position: relative;
   width: 100%;
-  /* Memenuhi kotak pre-footer/sidebar */
   border-radius: 12px;
   overflow: hidden;
-  /* Agar sudut peta tetap melengkung rapi */
 }
 
 .maps-wrapper iframe {
   display: block;
   width: 100%;
-  /* Lebar penuh agar responsif */
-  height: 250px;
-  /* Atur tinggi sesuai kebutuhan halaman */
-  border: 0;
-  /* Menghilangkan border bawaan iframe */
 
-  /* Memastikan elemen siap menerima interaksi klik & geser */
+  height: 250px;
+  border: 0;
   pointer-events: auto;
 }
 
-/* Perbaikan Kotak Informasi Tabel (Solusi Masalah Utama Anda) */
 .school-subtitle {
   font-size: 16px;
   margin-bottom: 12px;
@@ -480,7 +470,7 @@ a {
   display: flex;
   border-bottom: 1px solid var(--border-grey);
   width: 100%;
-  /* Isi penuh pembungkus */
+
 }
 
 .table-row:last-child {
@@ -491,18 +481,15 @@ a {
   padding: 10px 14px;
   font-size: 13px;
   white-space: normal;
-  /* Paksa teks membungkus ke bawah jika baris habis, bukan memotong kata per huruf */
   word-break: break-word;
 }
 
 .row-full .table-cell {
   width: 100%;
-  /* Mengisi baris penuh pada baris NPSN dan Alamat */
 }
 
 .cell-label {
   width: 35%;
-  /* Proporsi ideal agar judul info tidak tertekan */
   border-right: 1px solid var(--border-grey);
   font-weight: 500;
   background-color: rgba(255, 255, 255, 0.02);
@@ -510,7 +497,6 @@ a {
 
 .cell-value {
   width: 65%;
-  /* Sisa ruang diberikan untuk isi data */
 }
 
 /* Copyright Footer */
@@ -524,7 +510,7 @@ a {
 }
 
 /* ==========================================================================
-   5. RESPONSIVE BREAKPOINTS (Tablet Layout Integration)
+   RESPONSIVE BREAKPOINTS (Tablet Layout Integration)
    ========================================================================== */
 @media (min-width: 768px) {
   .search-box {
@@ -597,9 +583,10 @@ a {
 }
 
 /* ==========================================================================
-   6. RESPONSIVE BREAKPOINTS (Desktop Layout Integration)
+   RESPONSIVE BREAKPOINTS (Desktop Layout Integration)
    ========================================================================== */
 @media (min-width: 1024px) {
+
   .btn-menu-mobile {
     display: none;
     /* Hilangkan hamburger menu di desktop */
@@ -623,30 +610,26 @@ a {
 
   .search-box {
     width: 200px;
-    /* Di desktop slot pencarian bisa lebih luas */
   }
 
-  /* Struktur 2 Koloms Sempurna (Kiri Konten - Kanan Sidebar) */
+  /* Struktur 2 Koloms (Kiri Konten - Kanan Sidebar) */
   .main-layout {
     flex-direction: row;
     align-items: flex-start;
   }
 
-  .main-content-detail {
-    flex: 0 0 75%;
-  }
-
   .main-content {
-    flex: 0 0 100%;
+    flex: 0 0 75%;
+    /* Konten utama memakan ruang 75% */
   }
 
   .sidebar-content {
     flex: 0 0 25%;
-    /* Sidebar memakan sisa ruang 32% */
+    /* Sidebar memakan sisa ruang 25% */
     position: sticky;
     top: 25px;
     /* Sidebar tidak tenggelam saat di-scroll ke bawah */
-    gap: 50px;
+    gap: 50px
   }
 
   .orange-box {
@@ -657,7 +640,6 @@ a {
 
   .banner-box-grid {
     grid-template-columns: 1fr;
-    /* Kembalikan ke susunan berderet vertikal khusus dalam sidebar desktop */
     gap: 50px;
   }
 
@@ -671,6 +653,128 @@ a {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
+  }
+}
+
+/* ==========================================================================
+   TAMPILAN MENU MOBILE DRAWER & SEARCH TOGGLE
+   ========================================================================== */
+
+/* --- Keadaan Desktop (Layar Lebar) --- */
+@media (min-width: 1024px) {
+
+  /* Sembunyikan search box toggle bawaan saat di layar komputer/laptop */
+  .desktop-menu .search-box-toggle {
+    display: none !important;
+  }
+
+  /* Efek Hover link navbar desktop */
+  body .desktop-menu a {
+    color: var(--pure-white) !important;
+    transition: color 0.2s ease-in-out;
+  }
+
+  body .desktop-menu a:hover {
+    color: var(--brand-orange) !important;
+  }
+}
+
+/* Keadaan Mobile & Tablet (Layar Kecil) */
+@media (max-width: 1023px) {
+
+  /* Tampilkan tombol hamburger mobile */
+  .btn-menu-mobile {
+    display: flex !important;
+    align-items: center;
+    z-index: 10001;
+  }
+
+  /*Mengubah desktop-menu menjadi Laci Slide Kanan */
+  .desktop-menu {
+    position: fixed;
+    top: 0;
+    right: -50vw;
+    width: 50vw;
+    height: 100vh;
+
+    background-color: #1a110a;
+    padding: 90px 20px 20px 20px;
+    box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    z-index: 10000;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.6);
+    border-left: 3px solid var(--brand-orange);
+  }
+
+  .desktop-menu.active {
+    right: 0;
+  }
+
+  .desktop-menu .search-box-toggle {
+    display: flex !important;
+
+    width: 100%;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+    background-color: var(--pure-white, #ffffff);
+    border-radius: 6px;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+  .desktop-menu .search-box-toggle input {
+    width: 100%;
+    font-size: 13px;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  .desktop-menu .search-box-toggle .select-wrapper {
+    width: auto;
+    max-width: 75px;
+    margin-right: 10px;
+  }
+
+  .desktop-menu .search-box-toggle .filter-select {
+    width: 100%;
+    font-size: 11px;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .desktop-menu .search-box-toggle .search-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .desktop-menu a {
+    color: var(--pure-white) !important;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: block;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .desktop-menu a:last-child {
+    border-bottom: none;
   }
 }
 
