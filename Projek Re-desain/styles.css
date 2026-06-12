@@ -851,6 +851,23 @@ a {
   object-fit: cover;
 }
 
+/* untuk link  */
+.activity-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.activity-card-link:hover {
+  transform: translateY(-2px);
+}
+
+.activity-card {
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+/* untuk link */
+
 .card-label {
   background: var(--brand-orange);
   color: #000;
