@@ -1,0 +1,866 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & INITIAL DEFAULTS (Mobile First Approach)
+   ========================================================================== */
+:root {
+  --font-main: "Inter", sans-serif;
+  --font-reading: "Mulish", sans-serif;
+
+  --brand-orange: #ff7a00;
+  --bg-dark-shade: #1a110a;
+  --pure-white: #ffffff;
+  --pure-black: #000000;
+  --border-grey: #dddddd;
+  --badge-light: #ffe2c2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark-shade);
+  color: var(--pure-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================================================
+   2. SITE MODULES: NAVBAR & HEADER AREA
+   ========================================================================== */
+.navbar {
+  background-color: var(--pure-black);
+  padding: 12px 12px;
+  border-bottom: 3px solid var(--brand-orange);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo-img {
+  height: 45px;
+  width: auto;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.desktop-menu {
+  display: none;
+  /* Mobile default hidden */
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-box {
+  display: none;
+  align-items: center;
+  background-color: var(--pure-white);
+  border-radius: 6px;
+  padding: 4px 10px;
+  width: 300px;
+  gap: 10px;
+  /* Hug content basic width */
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 13px;
+  color: var(--pure-black);
+}
+
+.select-wrapper {
+  width: 100%;
+}
+
+.search-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-menu-mobile {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-menu-mobile img {
+  width: 26px;
+}
+
+/* Page Banner Title */
+.page-header {
+  padding: 30px 0 15px;
+}
+
+.header-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.header-logo-kiri {
+  width: 110px;
+  height: auto;
+}
+
+.header-logo img {
+  width: 110px;
+  height: auto;
+  display: none;
+}
+
+.header-title {
+  background-color: var(--brand-orange);
+  color: var(--pure-black);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 8px 24px;
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+  /* Fill container on mobile */
+  /* max-width: 450px; */
+}
+
+/* ==========================================================================
+   3. MIDDLE ZONE LAYOUT (Content & Sidebar)
+   ========================================================================== */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.article-card h2 {
+  font-size: 20px;
+  color: var(--brand-orange);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.article-body {
+  font-family: var(--font-reading);
+  font-size: 15px;
+  text-align: justify;
+}
+
+.article-body p {
+  margin-bottom: 15px;
+  text-indent: 20px;
+}
+
+.logo-title {
+  font-family: var(--font-main);
+  color: var(--brand-orange);
+  margin: 25px 0 10px;
+  font-size: 18px;
+}
+
+.logo-meaning-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.logo-meaning-list li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.logo-meaning-list li::before {
+  content: "•";
+  color: var(--brand-orange);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Photo Gallery Stack */
+.gallery-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 30px;
+
+  overflow-x: auto;
+  /* Memunculkan fungsi scroll horizontal jika foto melebihi layar */
+  overflow-y: hidden;
+  /* Matikan scroll vertikal (atas-bawah) */
+  scroll-snap-type: x mandatory;
+  /* Membuat scroll otomatis mengunci pas di tengah/awal foto */
+  -webkit-overflow-scrolling: touch;
+  /* Membuat geseran di layar HP terasa mulus & responsif */
+}
+
+.gallery-wrapper::-webkit-scrollbar {
+  display: none;
+  /* Menghilangkan batang scrollbar secara total */
+}
+
+.gallery-item {
+  /* flex: shrink-0 grow-0 basis-85% */
+  flex: 0 0 85%;
+  /* Di HP, satu foto memakan 85% lebar layar. Sisa 15% untuk mengintip foto berikutnya */
+  scroll-snap-align: start;
+  /* Titik penguncian saat jari selesai menggeser foto */
+}
+
+.gallery-item img {
+  border-radius: 8px;
+  object-fit: cover;
+  width: 100%;
+  height: fit-content;
+}
+
+/* Widget System (Solusi Teks Bertumpuk Vertikal) */
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 30px;
+}
+
+.orange-box {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.orange-widget {
+  background-color: var(--brand-orange);
+  color: var(--pure-black);
+  padding: 16px;
+  border-radius: 16px;
+  width: 100%;
+  /* Pastikan menghabiskan kontainer tanpa pemotongan lebar */
+}
+
+.widget-title {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.news-list {
+  list-style: none;
+}
+
+.news-list li {
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.news-list li:last-child {
+  border-bottom: none;
+}
+
+.announcement-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.announcement-date {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.announcement-link {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.announcement-desc {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.widget-line {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 12px 0;
+}
+
+/* Banner Grid Links */
+.banner-box-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+}
+
+.banner-item-card img {
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   4. BOTTOM INFORMATION SECTIONS (PRE-FOOTER)
+   ========================================================================== */
+.pre-footer-section {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pre-footer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.block-title {
+  color: var(--brand-orange);
+  font-size: 20px;
+  margin-bottom: 18px;
+  border-left: 3px solid var(--brand-orange);
+  padding-left: 10px;
+}
+
+/* Agenda Cards Fix */
+.agenda-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.agenda-box {
+  padding: 5px;
+  border-bottom: 1px solid white;
+}
+
+.agenda-card {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  /* Sejajarkan lurus badge tanggal dengan teks */
+}
+
+.date-badge {
+  background-color: var(--badge-light);
+  color: var(--pure-black);
+  padding: 8px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 75px;
+  /* Kunci lebar minimum agar lingkaran/kotak tidak terjepit */
+  flex-shrink: 0;
+  /* Cegah kompresi dari flexbox */
+}
+
+.date-badge .day {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.date-badge .month {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.agenda-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+  /* Ambil sisa tempat yang ada secara penuh */
+}
+
+.badge-time {
+  background-color: var(--badge-light);
+  color: var(--pure-black);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  width: max-content;
+}
+
+.agenda-text {
+  font-size: 13.5px;
+}
+
+.agenda-status {
+  font-size: 11px;
+  color: #aaaaaa;
+}
+
+.footer-block-group {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.footer-line {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Maps Block */
+.maps-wrapper {
+  position: relative;
+  width: 100%;
+  /* Memenuhi kotak pre-footer/sidebar */
+  border-radius: 12px;
+  overflow: hidden;
+  /* Agar sudut peta tetap melengkung rapi */
+}
+
+.maps-wrapper iframe {
+  display: block;
+  width: 100%;
+  /* Lebar penuh agar responsif */
+  height: 250px;
+  /* Atur tinggi sesuai kebutuhan halaman */
+  border: 0;
+  /* Menghilangkan border bawaan iframe */
+
+  /* Memastikan elemen siap menerima interaksi klik & geser */
+  pointer-events: auto;
+}
+
+/* Perbaikan Kotak Informasi Tabel (Solusi Masalah Utama Anda) */
+.school-subtitle {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.responsive-table {
+  width: 100%;
+  border: 1px solid var(--border-grey);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-row {
+  display: flex;
+  border-bottom: 1px solid var(--border-grey);
+  width: 100%;
+  /* Isi penuh pembungkus */
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-cell {
+  padding: 10px 14px;
+  font-size: 13px;
+  white-space: normal;
+  /* Paksa teks membungkus ke bawah jika baris habis, bukan memotong kata per huruf */
+  word-break: break-word;
+}
+
+.row-full .table-cell {
+  width: 100%;
+  /* Mengisi baris penuh pada baris NPSN dan Alamat */
+}
+
+.cell-label {
+  width: 35%;
+  /* Proporsi ideal agar judul info tidak tertekan */
+  border-right: 1px solid var(--border-grey);
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.cell-value {
+  width: 65%;
+  /* Sisa ruang diberikan untuk isi data */
+}
+
+/* Copyright Footer */
+.bottom-credits {
+  background-color: var(--brand-orange);
+  color: var(--pure-black);
+  text-align: center;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ==========================================================================
+   5. RESPONSIVE BREAKPOINTS (Tablet Layout Integration)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .search-box {
+    display: flex;
+    /* Tampilkan slot pencarian di tablet */
+  }
+
+  .header-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .header-title {
+    font-size: 22px;
+    width: 100%;
+    max-width: none;
+  }
+
+  .header-logo-kiri {
+    display: none;
+  }
+
+  .header-logo img {
+    display: block;
+  }
+
+  .gallery-wrapper {
+    flex-direction: row;
+  }
+
+  .gallery-item {
+    flex: 1;
+    /* Membagi rata 3 galeri foto kesamping */
+  }
+
+  .sidebar-content {
+    gap: 35px;
+  }
+
+  .orange-box {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+  }
+
+  .banner-box-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    /* Tampilan tablet mengisi 2 kolom bersisian */
+  }
+
+  .pre-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* Memisahkan area menjadi grid */
+    gap: 50px;
+  }
+
+  .agenda-container {
+    grid-template-columns: repeat(2, 1fr);
+    /* Agenda berjajar 2 kolom di tablet */
+  }
+
+  .footer-block-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 75px;
+  }
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS (Desktop Layout Integration)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .btn-menu-mobile {
+    display: none;
+    /* Hilangkan hamburger menu di desktop */
+  }
+
+  .desktop-menu {
+    display: flex;
+    gap: 20px;
+  }
+
+  .desktop-menu a {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .desktop-menu a:hover,
+  .desktop-menu a.active {
+    color: var(--brand-orange);
+  }
+
+  .search-box {
+    width: 200px;
+    /* Di desktop slot pencarian bisa lebih luas */
+  }
+
+  /* Struktur 2 Koloms Sempurna (Kiri Konten - Kanan Sidebar) */
+  .main-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .main-content-detail {
+    flex: 0 0 75%;
+  }
+
+  .main-content {
+    flex: 0 0 100%;
+  }
+
+  .sidebar-content {
+    flex: 0 0 25%;
+    /* Sidebar memakan sisa ruang 32% */
+    position: sticky;
+    top: 25px;
+    /* Sidebar tidak tenggelam saat di-scroll ke bawah */
+    gap: 50px;
+  }
+
+  .orange-box {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .banner-box-grid {
+    grid-template-columns: 1fr;
+    /* Kembalikan ke susunan berderet vertikal khusus dalam sidebar desktop */
+    gap: 50px;
+  }
+
+  /* Susunan Pre-Footer 3 Kolom Desktop Berjajar */
+  .pre-footer-grid {
+    grid-template-columns: 1fr 2fr;
+    gap: 75px;
+  }
+
+  .agenda-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+/* ==========================================
+   ESKUL PAGE
+========================================== */
+
+.eskul-page {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Orange title */
+
+.page-title-banner {
+  background: var(--brand-orange);
+  border-radius: 4px;
+  padding: 14px;
+  margin-bottom: 30px;
+}
+
+.page-title-banner {
+  background: var(--brand-orange);
+  border-radius: 4px;
+  padding: 14px;
+  margin-bottom: 30px;
+}
+
+.page-title-banner h1 {
+  color: #000;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Section Container */
+
+.section-box {
+  background: #f6b96d;
+  padding: 12px;
+  margin-bottom: 28px;
+  border-radius: 2px;
+}
+
+/* Section Header */
+
+.section-title {
+  background: var(--brand-orange);
+  color: #000;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 18px;
+  margin-bottom: 12px;
+}
+
+/* ==========================================
+   CARD GRID
+========================================== */
+
+.activity-grid {
+  display: grid;
+  gap: 12px;
+}
+
+/* Desktop */
+.activity-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Card */
+
+.activity-card {
+  background: transparent;
+  overflow: hidden;
+}
+
+.activity-card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* untuk link  */
+.activity-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.activity-card-link:hover {
+  transform: translateY(-2px);
+}
+
+.activity-card {
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+/* untuk link */
+
+.card-label {
+  background: var(--brand-orange);
+  color: #000;
+  text-align: center;
+  font-size: 13px;
+  padding: 8px 4px;
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   SPORTS LOGO
+========================================== */
+
+.sport-img-wrap {
+  position: relative;
+  display: block;
+}
+
+.sport-logo-overlay {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+
+  width: 38px !important;
+  height: 38px !important;
+
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1023px) {
+  .eskul-page {
+    max-width: 900px;
+    padding: 16px;
+  }
+
+  .activity-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .card-label {
+    font-size: 14px;
+    min-height: 46px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .eskul-page {
+    padding: 12px;
+  }
+
+  .activity-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .page-title-banner h1 {
+    font-size: 18px;
+  }
+  .page-title-banner1 h1 {
+    font-size: 18px;
+  }
+
+  .card-label {
+    font-size: 14px;
+    min-height: 48px;
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .sport-logo-overlay {
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
