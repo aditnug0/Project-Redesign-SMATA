@@ -289,17 +289,6 @@ img[src^="gambar"] {
   max-width: 320px;
 }
 
-.hero-img {
-  width: 100%;
-  border-radius: var(--radius-xl);
-  border: 3px solid var(--black);
-  transform: rotate(-5deg);
-  box-shadow: 0 8px 32px rgba(255, 122, 0, 0.25);
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
-  background: #1a1a1a;
-}
-
 /* ==========================================================================
    KEUNGGULAN SECTION
    ========================================================================== */
@@ -1216,7 +1205,7 @@ img[src^="gambar"] {
     max-width: 220px;
   }
   .guru-photo {
-    border-radius: var(--radius-xl);
+    /* border-radius: var(--radius-xl); */
   }
 
   /* Info grid */
