@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMA Negeri 1 Tempeh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Mulish:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="brand-logo">
+          <img
+            src="Logo-SMATA.png"
+            alt="Logo SMA Negeri 1 Tempeh"
+            class="logo-img"
+          />
+        </div>
+        <div class="nav-right">
+          <nav class="desktop-menu">
+            <div class="search-box-toggle">
+              <input
+                type="text"
+                placeholder="Cari sesuatu"
+                aria-label="Search"
+              />
+              <div class="select-wrapper">
+                <select name="kategori" class="filter-select">
+                  <option value="pos">Pos</option>
+                  <option value="editorial">Editorial</option>
+                  <option value="blog">Blog</option>
+                  <option value="pengumuman">Pengumuman</option>
+                  <option value="agenda" selected>Agenda</option>
+                  <option value="fasilitas">Fasilitas</option>
+                  <option value="ekskul">Ekskul</option>
+                  <option value="prestasi">Prestasi</option>
+                </select>
+              </div>
+              <img
+                src="search-black.png"
+                alt="Search Icon"
+                class="search-icon"
+              />
+            </div>
+            <a href="main.html">BERANDA</a>
+            <a href="#">PROFIL</a>
+            <a href="#">WAKA</a>
+            <a href="#">BK</a>
+            <a href="MainEskul.html">EKSTRAKURIKULER</a>
+            <a href="#">INFORMASI</a>
+            <a href="#">PRANALA</a>
+            <a href="#">PPDB</a>
+          </nav>
+
+          <div class="nav-actions">
+            <div class="search-box">
+              <input
+                type="text"
+                placeholder="Cari sesuatu"
+                aria-label="Search"
+              />
+              <div class="select-wrapper">
+                <select name="kategori" class="filter-select">
+                  <option value="pos">Pos</option>
+                  <option value="editorial">Editorial</option>
+                  <option value="blog">Blog</option>
+                  <option value="pengumuman">Pengumuman</option>
+                  <option value="agenda" selected>Agenda</option>
+                  <option value="fasilitas">Fasilitas</option>
+                  <option value="ekskul">Ekskul</option>
+                  <option value="prestasi">Prestasi</option>
+                </select>
+              </div>
+              <img
+                src="search-black.png"
+                alt="Search Icon"
+                class="search-icon"
+              />
+            </div>
+            <button class="btn-menu-mobile" aria-label="Menu">
+              <img src="menu white.png" alt="Menu Icon" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- body using image as a temporary solution -->
+    <div class="hero-image">
+      <picture>
+        <!-- Mobile -->
+        <source media="(max-width: 767px)" srcset="Android Compact - 2.png" />
+
+        <!-- Tablet -->
+        <source media="(max-width: 1023px)" srcset="main tab.png" />
+
+        <!-- Desktop -->
+        <img src="Desktop - 3.png" alt="Main" class="responsive-hero" />
+      </picture>
+    </div>
+    <!-- body using image as a temporary solution -->
+
+    <section class="pre-footer-section">
+      <div class="container pre-footer-grid">
+        <div class="footer-block">
+          <h3 class="block-title">Agenda SMATA</h3>
+          <div class="agenda-container">
+            <div class="agenda-box">
+              <div class="agenda-card">
+                <div class="date-badge">
+                  <span class="day">09</span>
+                  <span class="month">Agu 2024</span>
+                </div>
+                <div class="agenda-details">
+                  <span class="badge-time">Waktu : 13.00</span>
+                  <p class="agenda-text">
+                    Kegiatan PERJUSA Siswa Siswi Baru TP. 2024/2025
+                  </p>
+                  <span class="agenda-status">Agenda telah lewat</span>
+                </div>
+              </div>
+            </div>
+            <div class="agenda-box">
+              <div class="agenda-card">
+                <div class="date-badge">
+                  <span class="day">12</span>
+                  <span class="month">Jul 2021</span>
+                </div>
+                <div class="agenda-details">
+                  <span class="badge-time">Waktu : 11.00</span>
+                  <p class="agenda-text">
+                    Pengumuman Kelulusan Siswa Tahun Ajaran 2020/2021
+                  </p>
+                  <span class="agenda-status">Agenda telah lewat</span>
+                </div>
+              </div>
+            </div>
+            <div class="agenda-box">
+              <div class="agenda-card">
+                <div class="date-badge">
+                  <span class="day">17</span>
+                  <span class="month">Okt 2018</span>
+                </div>
+                <div class="agenda-details">
+                  <span class="badge-time">Waktu : 07.00</span>
+                  <p class="agenda-text">
+                    SEGERA!!!! HUT SMAN 1 TEMPEH LUMAJANG
+                  </p>
+                  <span class="agenda-status">Agenda telah lewat</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-block-group">
+          <div class="footer-block">
+            <h3 class="block-title">Penunjuk Arah</h3>
+            <div class="maps-wrapper">
+              <!-- <a href="https://maps.google.com" target="_blank" class="maps-overlay-btn">Buka di Maps ↗</a> -->
+              <!-- <img src="images/node-170.png" alt="Peta Lokasi SMAN 1 Tempeh" class="maps-graphic"> -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.9233285206933!2d113.16788613796236!3d-8.210465604055505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd669e3ec3b07d9%3A0x6ae3c45c51ffbbb1!2sSMA%20NEGERI%201%20TEMPEH!5e0!3m2!1sid!2sid!4v1781182898127!5m2!1sid!2sid"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+          <div class="footer-block">
+            <h3 class="block-title">Info Sekolah</h3>
+            <h4 class="school-subtitle">SMA Negeri 1 Tempeh</h4>
+
+            <div class="responsive-table">
+              <div class="table-row row-full">
+                <div class="table-cell">NPSN 20521460</div>
+              </div>
+              <div class="table-row row-full">
+                <div class="table-cell">JL. SOEKARNO HATTA, NO. 130</div>
+              </div>
+              <div class="table-row">
+                <div class="table-cell cell-label">TELEPON</div>
+                <div class="table-cell cell-value">0334520670</div>
+              </div>
+              <div class="table-row">
+                <div class="table-cell cell-label">EMAIL</div>
+                <div class="table-cell cell-value">smantempeh1@gmail.com</div>
+              </div>
+              <div class="table-row">
+                <div class="table-cell cell-label">WHATSAPP</div>
+                <div class="table-cell cell-value">081554</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bottom-credits">
+      <p>SMA NEGERI 1 TEMPEH &copy; 2018</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const btnMenuMobile = document.querySelector(".btn-menu-mobile");
+        const desktopMenu = document.querySelector(".desktop-menu");
+        const searchBoxToggle = document.querySelector(".search-box-toggle");
+
+        if (btnMenuMobile && desktopMenu) {
+          // Jalankan fungsi klik tombol hamburger untuk buka/tutup menu
+          btnMenuMobile.addEventListener("click", function (e) {
+            e.stopPropagation();
+            desktopMenu.classList.toggle("active");
+          });
+
+          // Mencegah menu laci tertutup saat elemen pencarian di dalam laci di-klik/di-ketik
+          if (searchBoxToggle) {
+            searchBoxToggle.addEventListener("click", function (e) {
+              e.stopPropagation();
+            });
+          }
+
+          // Menutup menu otomatis jika pengguna mengklik area luar laci halaman web
+          document.addEventListener("click", function (e) {
+            if (
+              !desktopMenu.contains(e.target) &&
+              !btnMenuMobile.contains(e.target)
+            ) {
+              desktopMenu.classList.remove("active");
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
