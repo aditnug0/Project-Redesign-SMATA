@@ -1374,7 +1374,7 @@ img[src^="gambar"] {
 
   /* Guru */
   .guru-grid {
-    justify-content: flex-start;
+    justify-content: center;
     gap: 24px;
   }
   .guru-card {
