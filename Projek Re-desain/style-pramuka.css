@@ -1,0 +1,779 @@
+:root {
+    --font-main: 'Inter', sans-serif;
+    --font-reading: 'Mulish', sans-serif;
+
+    --brand-orange: #FF7A00;
+    --bg-dark-shade: #1A110A;
+    --pure-white: #FFFFFF;
+    --pure-black: #000000;
+    --border-grey: #DDDDDD;
+    --badge-light: #FFE2C2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background: linear-gradient(180deg, #000000 0%, #2C170D 100%);
+    color: var(--pure-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+    NAVBAR & HEADER AREA
+   ========================================================================== */
+.navbar {
+    background: linear-gradient(84.31deg, #FF7A00 20.87%, #904500 35.13%, #000000 45.3%);
+    padding: 12px 12px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+}
+
+.nav-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.desktop-menu {
+    display: none;
+    /* Mobile default hidden */
+}
+
+.search-box-toggle {
+    display: none;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.search-box {
+    display: none;
+    align-items: center;
+    background-color: var(--pure-white);
+    border-radius: 6px;
+    padding: 4px 10px;
+    width: 300px;
+    gap: 10px;
+    /* Hug content basic width */
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 13px;
+    color: var(--pure-black);
+}
+
+.select-wrapper {
+    width: 100%;
+
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-menu-mobile {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-menu-mobile img {
+    width: 26px;
+}
+
+/* Page Banner Title */
+.page-header {
+    padding: 30px 0 15px;
+}
+
+.header-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+
+.header-logo-kiri {
+    width: 110px;
+    height: auto;
+}
+
+.header-logo img {
+    width: 110px;
+    height: auto;
+    display: none;
+}
+
+.header-title {
+    background-color: var(--brand-orange);
+    color: var(--pure-black);
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px 24px;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* ==========================================================================
+   Content & Sidebar
+   ========================================================================== */
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.article-card h2 {
+    font-size: 20px;
+    color: var(--brand-orange);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.article-body {
+    font-family: var(--font-reading);
+    font-size: 15px;
+    text-align: justify;
+}
+
+.article-body p {
+    margin-bottom: 15px;
+    text-indent: 20px;
+}
+
+.logo-title {
+    font-family: var(--font-main);
+    color: var(--brand-orange);
+    margin: 25px 0 10px;
+    font-size: 18px;
+}
+
+.logo-meaning-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.logo-meaning-list li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.logo-meaning-list li::before {
+    content: "•";
+    color: var(--brand-orange);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Photo Gallery Stack */
+.gallery-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 30px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gallery-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-item {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+
+}
+
+.gallery-item img {
+    border-radius: 8px;
+    object-fit: cover;
+    width: 100%;
+    height: fit-content;
+
+}
+
+/* Widget System (Solusi Teks Bertumpuk Vertikal) */
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 30px;
+}
+
+.orange-box {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.orange-widget {
+    background-color: var(--brand-orange);
+    color: var(--pure-black);
+    padding: 16px;
+    border-radius: 16px;
+    width: 100%;
+    box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.widget-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.news-list {
+    list-style: none;
+}
+
+.news-list li {
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.news-list li:last-child {
+    border-bottom: none;
+}
+
+.announcement-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.announcement-date {
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.announcement-link {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.announcement-desc {
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.widget-line {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 12px 0;
+}
+
+/* Banner Grid Links */
+.banner-box-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+}
+
+.banner-item-card img {
+    border: 4px solid rgba(255, 255, 255, 1);
+}
+
+/* ==========================================================================
+   PRE-FOOTER
+   ========================================================================== */
+.pre-footer-section {
+    /* Frame Info Sekolah */
+    background: linear-gradient(90deg, #C6650B 0%, #2C170D 54.81%);
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pre-footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.block-title {
+    color: var(--pure-white);
+    font-size: 20px;
+    margin-bottom: 18px;
+    border-left: 3px solid var(--pure-white);
+    padding-left: 10px;
+}
+
+/* Agenda Cards Fix */
+.agenda-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.agenda-box {
+    padding: 5px;
+    border-bottom: 1px solid white;
+}
+
+.agenda-card {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.date-badge {
+    background-color: var(--badge-light);
+    color: var(--pure-black);
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 75px;
+    flex-shrink: 0;
+
+}
+
+.date-badge .day {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.date-badge .month {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.agenda-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 1;
+}
+
+.badge-time {
+    background-color: var(--badge-light);
+    color: var(--pure-black);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    width: max-content;
+}
+
+.agenda-text {
+    font-size: 13.5px;
+}
+
+.agenda-status {
+    font-size: 11px;
+    color: #ffffff;
+}
+
+.footer-block-group {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+
+.footer-line {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Maps Block */
+.maps-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.maps-wrapper iframe {
+    display: block;
+    width: 100%;
+
+    height: 250px;
+    border: 0;
+    pointer-events: auto;
+}
+
+.school-subtitle {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.responsive-table {
+    width: 100%;
+    border: 1px solid var(--border-grey);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-row {
+    display: flex;
+    border-bottom: 1px solid var(--border-grey);
+    width: 100%;
+
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-cell {
+    padding: 10px 14px;
+    font-size: 13px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.row-full .table-cell {
+    width: 100%;
+}
+
+.cell-label {
+    width: 35%;
+    border-right: 1px solid var(--border-grey);
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.cell-value {
+    width: 65%;
+}
+
+/* Copyright Footer */
+.bottom-credits {
+    background-color: var(--brand-orange);
+    color: var(--pure-black);
+    text-align: center;
+    padding: 15px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Tablet Layout Integration)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .search-box {
+        display: flex;
+        /* Tampilkan slot pencarian di tablet */
+    }
+
+    .header-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .header-title {
+        font-size: 22px;
+        width: 100%;
+        max-width: none;
+    }
+
+    .header-logo-kiri {
+        display: none;
+    }
+
+    .header-logo img {
+        display: block;
+    }
+
+    .gallery-wrapper {
+        flex-direction: row;
+    }
+
+    .gallery-item {
+        flex: 1;
+        /* Membagi rata 3 galeri foto kesamping */
+    }
+
+    .sidebar-content {
+        gap: 35px;
+    }
+
+    .orange-box {
+        display: flex;
+        flex-direction: row;
+        gap: 35px;
+    }
+
+    .banner-box-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+        /* Tampilan tablet mengisi 2 kolom bersisian */
+    }
+
+    .pre-footer-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        /* Memisahkan area menjadi grid */
+        gap: 50px;
+    }
+
+    .agenda-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* Agenda berjajar 2 kolom di tablet */
+    }
+
+    .footer-block-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 75px;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Desktop Layout Integration)
+   ========================================================================== */
+@media (min-width: 1024px) {
+
+    .btn-menu-mobile {
+        display: none;
+        /* Hilangkan hamburger menu di desktop */
+    }
+
+    .desktop-menu {
+        display: flex;
+        gap: 20px;
+    }
+
+    .desktop-menu a {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    .desktop-menu a:hover,
+    .desktop-menu a.active {
+        color: var(--brand-orange);
+    }
+
+    .search-box {
+        width: 200px;
+    }
+
+    /* Struktur 2 Koloms (Kiri Konten - Kanan Sidebar) */
+    .main-layout {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .main-content {
+        flex: 0 0 75%;
+        /* Konten utama memakan ruang 75% */
+    }
+
+    .sidebar-content {
+        flex: 0 0 25%;
+        /* Sidebar memakan sisa ruang 25% */
+        position: sticky;
+        top: 25px;
+        /* Sidebar tidak tenggelam saat di-scroll ke bawah */
+        gap: 50px
+    }
+
+    .orange-box {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .banner-box-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    /* Susunan Pre-Footer 3 Kolom Desktop Berjajar */
+    .pre-footer-grid {
+        grid-template-columns: 1fr 2fr;
+        gap: 75px;
+    }
+
+    .agenda-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* ==========================================================================
+   TAMPILAN MENU MOBILE DRAWER & SEARCH TOGGLE
+   ========================================================================== */
+
+/* --- Keadaan Desktop (Layar Lebar) --- */
+@media (min-width: 1024px) {
+
+    /* Sembunyikan search box toggle bawaan saat di layar komputer/laptop */
+    .desktop-menu .search-box-toggle {
+        display: none !important;
+    }
+
+    /* Efek Hover link navbar desktop */
+    body .desktop-menu a {
+        color: var(--pure-white) !important;
+        transition: color 0.2s ease-in-out;
+    }
+
+    body .desktop-menu a:hover {
+        color: var(--brand-orange) !important;
+    }
+}
+
+/* Keadaan Mobile & Tablet (Layar Kecil) */
+@media (max-width: 1023px) {
+
+    /* Tampilkan tombol hamburger mobile */
+    .btn-menu-mobile {
+        display: flex !important;
+        align-items: center;
+        z-index: 10001;
+    }
+
+    /*Mengubah desktop-menu menjadi Laci Slide Kanan */
+    .desktop-menu {
+        position: fixed;
+        top: 0;
+        right: -50vw;
+        width: 50vw;
+        height: 100vh;
+
+        background-color: #1a110a;
+        padding: 90px 20px 20px 20px;
+        box-sizing: border-box;
+        display: flex !important;
+        flex-direction: column;
+        gap: 10px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        z-index: 10000;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.6);
+        border-left: 3px solid var(--brand-orange);
+    }
+
+    .desktop-menu.active {
+        right: 0;
+    }
+
+    .desktop-menu .search-box-toggle {
+        display: flex !important;
+
+        width: 100%;
+        margin-bottom: 15px;
+        flex-shrink: 0;
+        background-color: var(--pure-white, #ffffff);
+        border-radius: 6px;
+        padding: 6px 10px;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    .desktop-menu .search-box-toggle input {
+        width: 100%;
+        font-size: 13px;
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+
+    .desktop-menu .search-box-toggle .select-wrapper {
+        width: auto;
+        max-width: 75px;
+        margin-right: 10px;
+    }
+
+    .desktop-menu .search-box-toggle .filter-select {
+        width: 100%;
+        font-size: 11px;
+        border: none;
+        background: transparent;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .desktop-menu .search-box-toggle .search-icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+    }
+
+    .desktop-menu a {
+        color: var(--pure-white) !important;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: block;
+        width: 100%;
+        text-align: left;
+        text-decoration: none;
+    }
+
+    .desktop-menu a:last-child {
+        border-bottom: none;
+    }
+}
